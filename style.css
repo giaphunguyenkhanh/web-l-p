@@ -1,0 +1,276 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f8ff;
+    color: #17243a;
+}
+
+header {
+    height: 75px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 3px 15px #00000010;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #17243a;
+    text-decoration: none;
+}
+
+.logo span, h1 span {
+    color: #527cff;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #526078;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: #527cff;
+}
+
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 70px 8%;
+    gap: 40px;
+    background: linear-gradient(120deg, #e7efff, #ffffff);
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.tag {
+    color: #527cff;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content > p:not(.tag) {
+    color: #66738a;
+    line-height: 1.8;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px #527cff30;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    background: #527cff;
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #315ce0;
+    transform: translateY(-4px);
+}
+
+.intro {
+    text-align: center;
+    padding: 75px 8%;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.intro > p:not(.tag) {
+    color: #66738a;
+    line-height: 1.8;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.card {
+    background: white;
+    padding: 35px 20px;
+    border-radius: 18px;
+    font-size: 35px;
+    box-shadow: 0 5px 25px #00000008;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card h3 {
+    font-size: 20px;
+    margin: 15px 0;
+}
+
+.card p {
+    font-size: 14px;
+    color: #66738a;
+}
+
+.page-title {
+    text-align: center;
+    padding: 75px 20px;
+    background: linear-gradient(120deg, #e7efff, #ffffff);
+}
+
+.page-title p:last-child {
+    color: #66738a;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 8%;
+}
+
+.content img {
+    width: 50%;
+    border-radius: 20px;
+}
+
+.content p {
+    color: #66738a;
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.activity-list {
+    padding: 50px 8%;
+}
+
+.activity {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px #00000008;
+}
+
+.activity img {
+    width: 250px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.activity p {
+    color: #66738a;
+    line-height: 1.8;
+}
+
+.gallery {
+    padding: 50px 8%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    transform: scale(1.04);
+}
+
+footer {
+    background: #17243a;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 30px;
+}
+
+@media (max-width: 750px) {
+    header {
+        height: auto;
+        padding: 20px;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero, .content, .activity {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .hero-image img, .content img {
+        width: 100%;
+    }
+
+    .cards, .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .activity img {
+        width: 100%;
+    }
+}
