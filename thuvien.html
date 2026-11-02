@@ -1,39 +1,28 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thư viện ảnh</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#121a22">
+  <title>Góc Nhỏ - Lớp 8/8</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <a href="index.html" class="logo">OUR CLASS<span>.</span></a>
-        <nav>
-            <a href="index.html">Trang chủ</a>
-            <a href="gioithieu.html">Giới thiệu</a>
-            <a href="hoatdong.html">Hoạt động</a>
-            <a href="thuvien.html" class="active">Thư viện</a>
-        </nav>
-    </header>
-
-    <section class="page-title">
-        <p class="tag">OUR MEMORIES</p>
-        <h1>THƯ VIỆN <span>KỶ NIỆM</span></h1>
-        <p>Mỗi bức ảnh là một câu chuyện.</p>
+  <div class="topline"><span class="topline-dot"></span> MỘT TẬP THỂ · NGÀN KỶ NIỆM <span class="topline-year">NIÊN KHÓA 20__ — 20__</span></div>
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-symbol">O</span><span class="brand-name">OUR CLASS<small>THE STORY OF US</small></span></a><button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false"><span></span><span></span></button><nav class="nav" aria-label="Điều hướng chính"><a href="index.html">Trang chủ</a><a href="gioithieu.html">Về chúng mình</a><a href="hoatdong.html">Hoạt động</a><a class="active" href="thuvien.html">Thư viện</a></nav><a class="header-link" href="thuvien.html">Xem kỷ niệm <span>↗</span></a></header>
+  <main>
+    <section class="page-hero"><p class="eyebrow">04 / GÓC LƯU GIỮ THANH XUÂN</p><h1>Một khung hình.<br><em>Vạn điều muốn nhớ.</em></h1><p>Những khoảnh khắc giản dị, những nụ cười thân quen và câu chuyện chỉ tập thể chúng mình mới hiểu.</p><div class="page-hero-bottom"><span>THE MEMORY ARCHIVE</span><span>CLICK A PHOTO TO VIEW ↗</span></div></section>
+    <section class="gallery-section section-pad"><div class="gallery-toolbar"><div><p class="eyebrow">BỘ SƯU TẬP KỶ NIỆM</p><h2>Những ngày <em>không quên.</em></h2></div><p class="gallery-help">Chọn một bức ảnh<br>để xem ở kích thước lớn.</p></div>
+      <div class="gallery-grid">
+        <button class="gallery-item gallery-large" type="button" data-image="images/lop.jpg" data-caption="Tập thể chúng mình"><span class="gallery-photo photo-shell" data-fallback="ẢNH TẬP THỂ"><img src="images/lop.jpg" alt="Ảnh tập thể lớp"></span><span class="gallery-caption"><small>01 / TOGETHER</small><b>Tập thể chúng mình</b><i>↗</i></span></button>
+        <button class="gallery-item" type="button" data-image="images/hoatdong1.jpg" data-caption="Một ngày đáng nhớ"><span class="gallery-photo photo-shell" data-fallback="KHOẢNH KHẮC 01"><img src="images/hoatdong1.jpg" alt="Khoảnh khắc hoạt động 1"></span><span class="gallery-caption"><small>02 / MOMENTS</small><b>Một ngày đáng nhớ</b><i>↗</i></span></button>
+        <button class="gallery-item" type="button" data-image="images/hoatdong2.jpg" data-caption="Cùng nhau học hỏi"><span class="gallery-photo photo-shell" data-fallback="KHOẢNH KHẮC 02"><img src="images/hoatdong2.jpg" alt="Khoảnh khắc hoạt động 2"></span><span class="gallery-caption"><small>03 / LEARNING</small><b>Cùng nhau học hỏi</b><i>↗</i></span></button>
+        <button class="gallery-item" type="button" data-image="images/hoatdong3.jpg" data-caption="Năng lượng tuổi trẻ"><span class="gallery-photo photo-shell" data-fallback="KHOẢNH KHẮC 03"><img src="images/hoatdong3.jpg" alt="Khoảnh khắc hoạt động 3"></span><span class="gallery-caption"><small>04 / ENERGY</small><b>Năng lượng tuổi trẻ</b><i>↗</i></span></button>
+        <button class="gallery-item" type="button" data-image="images/hoatdong4.jpg" data-caption="Những người bạn"><span class="gallery-photo photo-shell" data-fallback="KHOẢNH KHẮC 04"><img src="images/hoatdong4.jpg" alt="Khoảnh khắc hoạt động 4"></span><span class="gallery-caption"><small>05 / FRIENDSHIP</small><b>Những người bạn</b><i>↗</i></span></button>
+        <button class="gallery-item" type="button" data-image="images/hoatdong5.jpg" data-caption="Kỷ niệm còn mãi"><span class="gallery-photo photo-shell" data-fallback="KHOẢNH KHẮC 05"><img src="images/hoatdong5.jpg" alt="Khoảnh khắc hoạt động 5"></span><span class="gallery-caption"><small>06 / FOREVER</small><b>Kỷ niệm còn mãi</b><i>↗</i></span></button>
+      </div>
     </section>
-
-    <section class="gallery">
-        <img src="images/lop.jpg" alt="Ảnh tập thể">
-        <img src="images/hoatdong1.jpg" alt="Hoạt động học tập">
-        <img src="images/hoatdong2.jpg" alt="Hoạt động thể thao">
-        <img src="images/hoatdong3.jpg" alt="Hoạt động ngoại khóa">
-        <img src="images/hoatdong4.jpg" alt="Khoảnh khắc lớp">
-        <img src="images/hoatdong5.jpg" alt="Kỷ niệm">
-    </section>
-
-    <footer>© 2026 OUR CLASS - Forever Memories</footer>
-    <script src="script.js"></script>
-</body>
-</html>
+    <section class="gallery-ending"><p>“</p><h2>Rồi chúng ta sẽ lớn,<br><em>nhưng những ngày này vẫn ở lại.</em></h2></section>
+  </main>
+  <div class="lightbox" id="lightbox" aria-hidden="true"><button class="lightbox-close" type="button" aria-label="Đóng ảnh">×</button><button class="lightbox-prev" type="button" aria-label="Ảnh trước">‹</button><figure><img id="lightbox-image" src="" alt="Ảnh phóng to"><figcaption id="lightbox-caption"></figcaption></figure><button class="lightbox-next" type="button" aria-label="Ảnh tiếp theo">›</button></div>
+  <footer class="site-footer"><a class="brand footer-brand" href="index.html"><span class="brand-symbol">O</span><span class="brand-name">OUR CLASS<small>THE STORY OF US</small></span></a><p>Một tập thể · Ngàn kỷ niệm</p><span>© <span class="year"></span> OUR CLASS. MADE WITH CARE.</span></footer><script src="script.js"></script>
+</body></html>
