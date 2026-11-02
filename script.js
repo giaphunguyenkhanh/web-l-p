@@ -1,32 +1,94 @@
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".year").forEach(function (el) {
+    el.textContent = new Date().getFullYear();
+  });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const images = document.querySelectorAll(".gallery img");
-
-    images.forEach(function(img) {
-        img.addEventListener("click", function() {
-            const popup = document.createElement("div");
-
-            popup.style.position = "fixed";
-            popup.style.inset = "0";
-            popup.style.background = "#000000dd";
-            popup.style.display = "flex";
-            popup.style.alignItems = "center";
-            popup.style.justifyContent = "center";
-            popup.style.zIndex = "1000";
-            popup.style.cursor = "pointer";
-
-            const bigImage = document.createElement("img");
-            bigImage.src = img.src;
-            bigImage.style.maxWidth = "90%";
-            bigImage.style.maxHeight = "85%";
-            bigImage.style.borderRadius = "15px";
-
-            popup.appendChild(bigImage);
-            document.body.appendChild(popup);
-
-            popup.addEventListener("click", function() {
-                popup.remove();
-            });
-        });
+  const menuButton = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".nav");
+  if (menuButton && nav) {
+    menuButton.addEventListener("click", function () {
+      const opened = nav.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", opened ? "true" : "false");
     });
+  }
+
+  document.querySelectorAll(".photo-shell").forEach(function (shell) {
+    const img = shell.querySelector("img");
+    if (!img) {
+      shell.classList.add("is-empty");
+      return;
+    }
+    function checkImage() {
+      if (!img.complete || img.naturalWidth === 0) {
+        shell.classList.add("is-empty");
+      } else {
+        shell.classList.remove("is-empty");
+      }
+    }
+    img.addEventListener("load", checkImage);
+    img.addEventListener("error", checkImage);
+    checkImage();
+  });
+
+  const revealItems = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealItems.forEach(function (item) { observer.observe(item); });
+  } else {
+    revealItems.forEach(function (item) { item.classList.add("visible"); });
+  }
+
+  const lightbox = document.getElementById("lightbox");
+  if (lightbox) {
+    const items = Array.from(document.querySelectorAll(".gallery-item"));
+    const image = document.getElementById("lightbox-image");
+    const caption = document.getElementById("lightbox-caption");
+    const closeButton = lightbox.querySelector(".lightbox-close");
+    const previousButton = lightbox.querySelector(".lightbox-prev");
+    const nextButton = lightbox.querySelector(".lightbox-next");
+    let current = 0;
+
+    function showPhoto(index) {
+      current = (index + items.length) % items.length;
+      const item = items[current];
+      image.src = item.dataset.image;
+      caption.textContent = item.dataset.caption || "";
+    }
+    function openPhoto(index) {
+      showPhoto(index);
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      closeButton.focus();
+    }
+    function closePhoto() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      image.src = "";
+    }
+
+    items.forEach(function (item, index) {
+      item.addEventListener("click", function () { openPhoto(index); });
+    });
+    closeButton.addEventListener("click", closePhoto);
+    previousButton.addEventListener("click", function () { showPhoto(current - 1); });
+    nextButton.addEventListener("click", function () { showPhoto(current + 1); });
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) closePhoto();
+    });
+    document.addEventListener("keydown", function (event) {
+      if (!lightbox.classList.contains("open")) return;
+      if (event.key === "Escape") closePhoto();
+      if (event.key === "ArrowLeft") showPhoto(current - 1);
+      if (event.key === "ArrowRight") showPhoto(current + 1);
+    });
+  }
 });
